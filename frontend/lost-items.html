@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Lost Items - Lost & Found</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <nav class="header-nav">
+      <div class="logo">
+  <a href="admin-dashboard.html">
+    <i class="ri-arrow-left-line"></i>
+  </a>
+</div>
+    </nav>
+  </header>
+  
+  <main class="main-content">
+<div class="container">
+  <h1>Lost Items</h1>
+
+  <div class="filter-container">
+    <form id="search-form" class="search-box-wrapper">
+      <input type="text" id="search-input" placeholder="Search by title, description...">
+      <i class="ri-search-line search-icon"></i>
+    </form>
+    <div class="category-filter">
+      <label for="category-select">Filter by category:</label>
+      <select id="category-select">
+        <option value="all">All Categories</option>
+        <option value="electronics">Electronics</option>
+        <option value="clothing">Clothing</option>
+        <option value="wallet">Wallet</option>
+        <option value="phone">Phone</option>
+        <option value="keys">Keys</option>
+        <option value="documents">Documents</option>
+        <option value="others">Others</option>
+      </select>
+    </div>
+  </div>
+  <div id="items-list" class="items-grid">
+    </div>
+</div>
+  </main>
+  
+  <script type="module" src="js/utils.js"></script>
+  <script type="module" src="js/lost-items.js"></script>
+</body>
+</html>

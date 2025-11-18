@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Item - Lost & Found</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <nav class="header-nav">
+      <div class="logo"><a href="index.html">Lost & Found</a></div>
+      <div id="nav-links"></div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <!-- Reusing auth-container for a consistent form style -->
+      <div class="auth-container">
+        <h1>Report a Lost or Found Item</h1>
+        <div id="error-msg"></div>
+        <div id="success-msg"></div>
+
+        <form id="create-item-form" enctype="multipart/form-data">
+          <label for="type">Type:</label>
+          <select name="type" id="type" required>
+            <option value="">Select type</option>
+            <option value="lost">Lost</option>
+            <option value="found">Found</option>
+          </select>
+
+          <label for="category">Category:</label>
+          <select name="category" id="category" required>
+            <option value="">Select category</option>
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+            <option value="wallet">Wallet</option>
+            <option value="phone">Phone</option>
+            <option value="keys">Keys</option>
+            <option value="documents">Documents</option>
+            <option value="others">Others</option>
+          </select>
+
+          <label for="title">Title:</label>
+          <input type="text" name="title" id="title" required />
+
+          <label for="description">Description:</label>
+          <textarea name="description" id="description" rows="4"></textarea>
+
+          <label for="location">Location (Probable):</label>
+          <input type="text" name="location" id="location" />
+
+          <label for="contact">Phone or Mail (Optional):</label>
+          <input type="text" name="contact" id="contact" />
+          
+          <label for="image">Image (Optional):</label>
+          <input type="file" name="image" id="image" accept="image/*" />
+
+          <button type="submit">Submit Item</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  
+  <script type="module" src="js/items.js"></script>
+</body>
+</html>

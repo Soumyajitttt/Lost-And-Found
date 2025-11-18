@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Lost & Found</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <header class="header">
+      <nav class="header-nav">
+        <div class="logo">
+  <a href="index.html">
+    <i class="ri-arrow-left-line"></i>
+  </a>
+</div>
+        <div id="nav-links"></div>
+      </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="auth-container">
+        <h1>Register</h1>
+        <div id="error-msg"></div>
+        <form id="register-form">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" required />
+
+          <label for="role">Role</label>
+          <select id="role" name="role">
+            <option value="student" selected>Student</option>
+            <option value="teacher">Teacher</option>
+          </select>
+
+          <button type="submit">Register</button>
+        </form>
+        <p class="form-link">Already have an account? <a href="login.html">Login here</a></p>
+      </div>
+    </div>
+  </main>
+  
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>
+
