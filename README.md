@@ -1,6 +1,6 @@
 # Lost and Found
 
-A web-based platform to help users report and track lost and found items in their community (University Campuses, Neibourhoods, Hostels).
+A web-based platform to help users report and track lost and found items in their community (University Campuses, Neighborhoods, Hostels).
 
 ## Features
 
