@@ -1,5 +1,7 @@
 // Fetch LOST items that have matches (Admin only)
-fetch("http://localhost:4000/api/items/admin/lost-matches", {
+import { API_BASE } from "./utils.js";
+
+fetch(`${API_BASE}/api/items/admin/lost-matches`, {
   headers: {
     "Authorization": "Bearer " + localStorage.getItem("token")
   }
