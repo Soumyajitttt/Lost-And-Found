@@ -3,11 +3,72 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lost & Found - Reconnecting You With Your Valuables</title>
+    <title>Lost & Found - Your Campus Community Board</title>
     <link rel="stylesheet" href="css/styles.css" />
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script type="module" src="js/utils.js" defer></script>
+    <style>
+        /* Landing-page only styles (prefixed lp-) */
+        .lp-wrap { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+        .lp-section { padding: 4rem 0; border-top: 1px solid var(--border-color); }
+        .lp-head { text-align: center; max-width: 620px; margin: 0 auto 2.5rem; }
+        .lp-head h2 { font-size: 1.9rem; letter-spacing: -.01em; }
+        .lp-head p { margin: 0; }
+
+        /* Hero */
+        .lp-hero { padding: 4.5rem 0 4rem; background: radial-gradient(ellipse at 20% 0%, rgba(47,129,247,.14), transparent 55%); }
+        .lp-hero .lp-wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 3rem; align-items: center; }
+        .lp-eyebrow { display: inline-flex; align-items: center; gap: .5rem; padding: .25rem .8rem; border: 1px solid var(--border-color); border-radius: 2em; background: var(--bg-secondary); color: var(--text-secondary); font-size: .8rem; margin-bottom: 1.25rem; }
+        .lp-eyebrow i { color: var(--success-color); font-size: .6rem; }
+        .lp-hero h1 { font-size: 3.2rem; line-height: 1.08; letter-spacing: -.025em; margin-bottom: 1.25rem; }
+        .lp-hero h1 span { color: var(--secondary-accent); }
+        .lp-hero .lp-sub { font-size: 1.1rem; max-width: 520px; margin-bottom: 1.75rem; }
+        .lp-cta { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+        /* Board mock */
+        .lp-board { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); }
+        .lp-board-head { display: flex; justify-content: space-between; align-items: center; padding: .7rem 1rem; background: var(--bg-tertiary); border-bottom: 1px solid var(--border-color); font-weight: 600; font-size: .9rem; }
+        .lp-board-head small { color: var(--text-secondary); font-weight: 400; }
+        .lp-post { display: flex; gap: .85rem; padding: 1rem; border-bottom: 1px solid var(--border-color); }
+        .lp-post:last-child { border-bottom: none; }
+        .lp-avatar { width: 38px; height: 38px; flex-shrink: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--bg-tertiary); color: var(--text-secondary); }
+        .lp-post-body { min-width: 0; }
+        .lp-post-top { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin-bottom: .2rem; }
+        .lp-post-title { font-weight: 600; color: var(--text-primary); }
+        .lp-post-meta { color: var(--text-secondary); font-size: .8rem; margin: 0; }
+        .lp-post-match { margin-top: .6rem; padding: .45rem .7rem; border-radius: 6px; font-size: .8rem; background: rgba(47,129,247,.12); border: 1px solid rgba(47,129,247,.35); color: var(--secondary-accent); }
+
+        /* Category chips */
+        .lp-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; }
+        .lp-chip { display: inline-flex; align-items: center; gap: .5rem; padding: .45rem 1rem; border: 1px solid var(--border-color); border-radius: 2em; background: var(--bg-secondary); color: var(--text-primary); font-weight: 500; transition: all .15s; }
+        .lp-chip i { color: var(--secondary-accent); }
+        .lp-chip:hover { border-color: var(--primary-accent); background: var(--bg-tertiary); text-decoration: none; transform: translateY(-1px); }
+
+        /* Steps & values */
+        .lp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .lp-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; transition: border-color .15s; }
+        .lp-card:hover { border-color: var(--text-secondary); }
+        .lp-card h3 { margin-bottom: .5rem; }
+        .lp-card p { margin: 0; font-size: .92rem; }
+        .lp-step { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 1rem; background: rgba(47,129,247,.15); color: var(--secondary-accent); border: 1px solid rgba(47,129,247,.4); }
+        .lp-icon { font-size: 1.3rem; color: var(--secondary-accent); margin-bottom: 1rem; }
+
+        /* Voices */
+        .lp-quote p { font-style: italic; margin-bottom: 1rem; }
+        .lp-who { display: flex; align-items: center; gap: .6rem; font-weight: 600; font-size: .9rem; }
+        .lp-who .lp-avatar { width: 30px; height: 30px; font-size: .8rem; }
+
+        /* Final CTA */
+        .lp-final { text-align: center; padding: 4.5rem 1rem; background: var(--bg-secondary); border-top: 1px solid var(--border-color); }
+        .lp-final h2 { font-size: 2rem; }
+        .lp-final p { max-width: 520px; margin: 0 auto 1.5rem; }
+        .lp-final .lp-cta { justify-content: center; }
+
+        @media (max-width: 900px) {
+            .lp-hero .lp-wrap { grid-template-columns: 1fr; }
+            .lp-hero h1 { font-size: 2.4rem; }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -22,90 +83,120 @@
     </header>
 
     <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="container hero-container">
-                <div class="hero-content">
-                    <h1>The Easiest Way to Find What You've Lost</h1>
-                    <p class="subtitle">
-                        Our smart platform connects people who have lost items with the honest finders in our community. Fast, simple, and effective.
-                    </p>
-                    <div class="cta-buttons">
-                        <a href="register.html" class="btn btn-primary">Get Started - It's Free</a>
-                        <a href="login.html" class="btn btn-secondary">I Have an Account</a>
+        <!-- Hero -->
+        <section class="lp-hero">
+            <div class="lp-wrap">
+                <div>
+                    <div class="lp-eyebrow"><i class="fas fa-circle"></i> Built for campuses and neighbourhoods</div>
+                    <h1>Your community's <span>lost &amp; found</span> board</h1>
+                    <p class="lp-sub">Post what you lost or found. Neighbours, classmates and staff help each other, and smart matching connects the right people.</p>
+                    <div class="lp-cta">
+                        <a href="register.html" class="btn btn-primary btn-large">Join the community</a>
+                        <a href="login.html" class="btn btn-secondary btn-large">Log in</a>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <!-- Thematic SVG graphic -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-                        <defs>
-                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:var(--secondary-accent);stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:var(--primary-accent);stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <path fill="url(#grad1)" opacity="0.1" d="M49.8,-57.9C64.0,-47.9,74.5,-32.8,79.8,-15.1C85.1,2.5,85.2,22.7,76.5,39.1C67.8,55.5,50.3,68.1,31.7,75.4C13.1,82.7,-6.6,84.7,-25.1,79.5C-43.6,74.3,-60.9,62,-69.5,45.8C-78.1,29.6,-78.0,9.5,-73.0,-8.7C-68.1,-26.9,-58.3,-43.3,-45.1,-53.4C-31.9,-63.5,-16.0,-67.3,0.8,-68.2C17.5,-69.1,35.नुसार,-67.9,49.8,-57.9Z" transform="translate(100 100)" />
-                        <circle cx="100" cy="100" r="40" fill="none" stroke="var(--primary-accent)" stroke-width="6"/>
-                        <line x1="128" y1="128" x2="150" y2="150" stroke="var(--primary-accent)" stroke-width="8" stroke-linecap="round"/>
-                        <path d="M100 75 L100 125 M75 100 L125 100" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
-                    </svg>
-                </div>
-            </div>
-        </section>
 
-        <!-- Features Section -->
-        <section class="features-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Why Choose Us?</h2>
-                    <p>A smarter, community-driven approach to lost and found.</p>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-search-location"></i></div>
-                        <h3>Smart Matching</h3>
-                        <p>Our algorithm intelligently matches lost items with found ones based on category and description.</p>
+                <div class="lp-board" aria-label="Example posts">
+                    <div class="lp-board-head"><span><i class="fas fa-stream"></i> Community board</span><small>Example posts</small></div>
+                    <div class="lp-post">
+                        <div class="lp-avatar"><i class="fas fa-user"></i></div>
+                        <div class="lp-post-body">
+                            <div class="lp-post-top"><span class="badge badge--lost">Lost</span><span class="lp-post-title">Black wallet with college ID</span></div>
+                            <p class="lp-post-meta">Wallet · Near the library · 2h ago</p>
+                            <div class="lp-post-match"><i class="fas fa-link"></i> 1 possible match found</div>
+                        </div>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-users"></i></div>
-                        <h3>Community Powered</h3>
-                        <p>Join a growing community of students and faculty dedicated to helping each other out.</p>
+                    <div class="lp-post">
+                        <div class="lp-avatar"><i class="fas fa-user"></i></div>
+                        <div class="lp-post-body">
+                            <div class="lp-post-top"><span class="badge badge--found">Found</span><span class="lp-post-title">Keys with a red keychain</span></div>
+                            <p class="lp-post-meta">Keys · Block A corridor · 5h ago</p>
+                        </div>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-                        <h3>Simple & Fast</h3>
-                        <p>Reporting an item takes less than a minute. Get notified instantly when a potential match is found.</p>
+                    <div class="lp-post">
+                        <div class="lp-avatar"><i class="fas fa-user"></i></div>
+                        <div class="lp-post-body">
+                            <div class="lp-post-top"><span class="badge badge--lost">Lost</span><span class="lp-post-title">White wireless earbuds</span></div>
+                            <p class="lp-post-meta">Electronics · Canteen · Yesterday</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section class="testimonials-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>What Our Users Say</h2>
+        <!-- Categories -->
+        <section class="lp-section">
+            <div class="lp-wrap">
+                <div class="lp-head">
+                    <h2>Everything people lose, in one place</h2>
+                    <p>Browse and post across the categories your community needs most.</p>
                 </div>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
+                <div class="lp-chips">
+                    <a class="lp-chip" href="login.html"><i class="fas fa-laptop"></i> Electronics</a>
+                    <a class="lp-chip" href="login.html"><i class="fas fa-mobile-alt"></i> Phones</a>
+                    <a class="lp-chip" href="login.html"><i class="fas fa-wallet"></i> Wallets</a>
+                    <a class="lp-chip" href="login.html"><i class="fas fa-key"></i> Keys</a>
+                    <a class="lp-chip" href="login.html"><i class="fas fa-file-alt"></i> Documents</a>
+                    <a class="lp-chip" href="login.html"><i class="fas fa-tshirt"></i> Clothing</a>
+                    <a class="lp-chip" href="login.html"><i class="fas fa-box-open"></i> Others</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section class="lp-section">
+            <div class="lp-wrap">
+                <div class="lp-head">
+                    <h2>How it works</h2>
+                    <p>Three steps from "where is it?" to "got it back".</p>
+                </div>
+                <div class="lp-grid">
+                    <div class="lp-card"><div class="lp-step">1</div><h3>Post it</h3><p>Report a lost or found item with a description, location and photo. It takes under a minute.</p></div>
+                    <div class="lp-card"><div class="lp-step">2</div><h3>Get matched</h3><p>Our matching algorithm compares posts by category and description and surfaces likely matches.</p></div>
+                    <div class="lp-card"><div class="lp-step">3</div><h3>Hand it over</h3><p>Contact the other person, meet up, and mark the item as resolved so the board stays clean.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community -->
+        <section class="lp-section">
+            <div class="lp-wrap">
+                <div class="lp-head">
+                    <h2>Run by the community, kept trustworthy</h2>
+                    <p>A board only works when people can rely on it.</p>
+                </div>
+                <div class="lp-grid">
+                    <div class="lp-card"><div class="lp-icon"><i class="fas fa-users"></i></div><h3>Students &amp; staff together</h3><p>One shared space for everyone on campus, so lost items reach the people most likely to have seen them.</p></div>
+                    <div class="lp-card"><div class="lp-icon"><i class="fas fa-user-shield"></i></div><h3>Admin-reviewed posts</h3><p>Admins verify posts before they go live, which keeps spam and fake claims off the board.</p></div>
+                    <div class="lp-card"><div class="lp-icon"><i class="fas fa-bell"></i></div><h3>Stay in the loop</h3><p>Get notified when a potential match appears, instead of checking the board again and again.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voices -->
+        <section class="lp-section">
+            <div class="lp-wrap">
+                <div class="lp-head"><h2>Heard from the community</h2></div>
+                <div class="lp-grid">
+                    <div class="lp-card lp-quote">
                         <p>"I thought my Earbuds were gone forever after leaving it in somewhere in College. I reported it here and got a match notification the same day. Unbelievable!"</p>
-                        <div class="testimonial-author">- Harsh V., Student</div>
+                        <div class="lp-who"><div class="lp-avatar"><i class="fas fa-user"></i></div>Harsh V., Student</div>
                     </div>
-                    <div class="testimonial-card">
+                    <div class="lp-card lp-quote">
                         <p>"The process is so straightforward. As a faculty member, I appreciate having a reliable system on campus to handle lost items. Highly recommended."</p>
-                        <div class="testimonial-author">- Prof. Saladimir Putin</div>
+                        <div class="lp-who"><div class="lp-avatar"><i class="fas fa-user"></i></div>Prof. Saladimir Putin</div>
                     </div>
-                    
                 </div>
             </div>
         </section>
-        
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>Ready to Reclaim Your Items?</h2>
-                <p>Join our community today and never lose hope again.</p>
-                <a href="register.html" class="btn btn-primary btn-large">Sign Up Now</a>
+
+        <!-- Final CTA -->
+        <section class="lp-final">
+            <h2>Help someone get their day back</h2>
+            <p>Join the board today. Whether you lost something or found it, you're helping your community.</p>
+            <div class="lp-cta">
+                <a href="register.html" class="btn btn-primary btn-large">Sign up free</a>
+                <a href="login.html" class="btn btn-secondary btn-large">Log in</a>
             </div>
         </section>
     </main>
@@ -117,4 +208,3 @@
     </footer>
 </body>
 </html>
-
