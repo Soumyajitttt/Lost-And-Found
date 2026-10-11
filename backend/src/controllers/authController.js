@@ -127,3 +127,6 @@ export const getProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id).select("-password");
   res.json(user);
 });
+
+
+export const healthCheck = (req, res) => res.status(200).json({ status: 'ok' });
