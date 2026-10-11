@@ -21,8 +21,11 @@ app.use(
 const allowedOrigins = [
   "http://127.0.0.1:5500",
   "http://127.0.0.1:8080",
-  process.env.FRONTEND_URL
-].filter(Boolean);
+  ...(process.env.FRONTEND_URL || "")
+    .split(",")
+    .map(u => u.trim().replace(/\/$/, ""))
+    .filter(Boolean)
+];
 
 app.use(cors({
   origin: function(origin, callback){
